@@ -6,20 +6,30 @@ import jakarta.persistence.*;
 public class User {
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
- private String id;
+ private Long id;
  private String fullNane;
  private String email;
+ private String username;
  private String password;
  private String phoneNumber;
+
 
  @Enumerated(EnumType.STRING)
  private Role role;
 
- public String getId() {
+ public Long getId() {
   return id;
  }
 
- public void setId(String id) {
+ public String getUsername() {
+  return username;
+ }
+
+ public void setUsername(String username) {
+  this.username = username;
+ }
+
+ public void setId(Long id) {
   this.id = id;
  }
 
@@ -62,6 +72,7 @@ public class User {
  public void setPhoneNumber(String phoneNumber) {
   this.phoneNumber = phoneNumber;
  }
+
 }
 
 
