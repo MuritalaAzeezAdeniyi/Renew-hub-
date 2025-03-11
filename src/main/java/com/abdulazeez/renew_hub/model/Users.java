@@ -3,7 +3,7 @@ package com.abdulazeez.renew_hub.model;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Users {
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
