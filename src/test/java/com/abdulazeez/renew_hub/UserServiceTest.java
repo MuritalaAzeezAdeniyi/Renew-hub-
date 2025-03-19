@@ -2,6 +2,8 @@ package com.abdulazeez.renew_hub;
 
 import com.abdulazeez.renew_hub.dto.request.RegisterUserRequest;
 import com.abdulazeez.renew_hub.dto.response.RegisterUserResponse;
+import com.abdulazeez.renew_hub.exception.PhoneNumberException;
+import com.abdulazeez.renew_hub.exception.RegisterSuccessFullException;
 import com.abdulazeez.renew_hub.service.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ public class UserServiceTest {
     @Autowired
     private UserServiceImpl userService;
     @Test
-    public void testThatUserCanBeCreated() {
+    public void testThatUserCanBeCreated() throws RegisterSuccessFullException, PhoneNumberException {
         RegisterUserRequest request = new RegisterUserRequest();
         request.setUsername("Abdulazeez");
         request.setFullName("Muritala Azeez");
