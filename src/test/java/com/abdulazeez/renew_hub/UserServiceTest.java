@@ -22,10 +22,10 @@ public class UserServiceTest {
         request.setFullName("Muritala Azeez");
         request.setPassword("1111");
         request.setEmail("abdulazeez@gmail.com");
-        request.setPhoneNumber("1234567890");
+        request.setPhoneNumber("12345678901");
         RegisterUserResponse response = userService.createUser(request);
         assertThat(response).isNotNull();
-        assertThat(response.getMessage()).matches("Successfully Registered");
+        assertThat(response.getMessage()).matches("Successfully created user");
 
     }
 }
