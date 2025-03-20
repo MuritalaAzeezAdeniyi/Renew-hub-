@@ -1,7 +1,9 @@
 package com.abdulazeez.renew_hub.controller;
 
+import com.abdulazeez.renew_hub.dto.request.LoginRequest;
 import com.abdulazeez.renew_hub.dto.request.RegisterUserRequest;
 import com.abdulazeez.renew_hub.dto.response.ApiResponse;
+import com.abdulazeez.renew_hub.dto.response.LoginResponse;
 import com.abdulazeez.renew_hub.dto.response.RegisterUserResponse;
 import com.abdulazeez.renew_hub.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -27,5 +29,14 @@ public class UserServiceController {
             return new ResponseEntity<>(new ApiResponse(false,e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+    @PostMapping("/login")
+    public ResponseEntity <?> login(@RequestBody LoginRequest loginRequest) {
+        try{
+            String response = userService.login(loginRequest);
+            return new ResponseEntity<>(new ApiResponse(true,response), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
     }
 }

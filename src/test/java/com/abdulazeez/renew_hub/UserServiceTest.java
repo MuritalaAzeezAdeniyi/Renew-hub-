@@ -1,6 +1,8 @@
 package com.abdulazeez.renew_hub;
 
+import com.abdulazeez.renew_hub.dto.request.LoginRequest;
 import com.abdulazeez.renew_hub.dto.request.RegisterUserRequest;
+import com.abdulazeez.renew_hub.dto.response.LoginResponse;
 import com.abdulazeez.renew_hub.dto.response.RegisterUserResponse;
 import com.abdulazeez.renew_hub.exception.PhoneNumberException;
 import com.abdulazeez.renew_hub.exception.RegisterSuccessFullException;
@@ -27,5 +29,14 @@ public class UserServiceTest {
         assertThat(response).isNotNull();
         assertThat(response.getMessage()).matches("Successfully created user");
 
+    }
+    @Test
+    public void testThatUserCanLogin() throws PhoneNumberException, RegisterSuccessFullException {
+        LoginRequest request = new LoginRequest();
+        request.setUsername("Abdulazeez");
+        request.setPassword("1111");
+        String response = userService.login(request);
+        System.out.println(response);
+        assertThat(response).isNotNull();
     }
 }
