@@ -6,6 +6,7 @@ import com.abdulazeez.renew_hub.dto.response.LoginResponse;
 import com.abdulazeez.renew_hub.dto.response.RegisterUserResponse;
 import com.abdulazeez.renew_hub.exception.PhoneNumberException;
 import com.abdulazeez.renew_hub.exception.RegisterSuccessFullException;
+import com.abdulazeez.renew_hub.model.Role;
 import com.abdulazeez.renew_hub.service.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,19 @@ public class UserServiceTest {
         System.out.println(response);
         assertThat(response).isNotNull();
     }
+
+    @Test
+    public void testThatUserCanRegister() throws PhoneNumberException, RegisterSuccessFullException {
+        RegisterUserRequest request = new RegisterUserRequest();
+        request.setUsername("Abdulazeez");
+        request.setFullName("MuritalaAzeez");
+        request.setPassword("4545");
+        request.setPhoneNumber("78087654328");
+        request.setEmail("Wura@gmail.com");
+        request.setRole(Role.BUYER);
+        RegisterUserResponse response = userService.createUser(request);
+        assertThat(response).isNotNull();
+
+    }
+
 }

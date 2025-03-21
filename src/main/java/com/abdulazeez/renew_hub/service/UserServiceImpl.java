@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
         ValidateEmail(request.getEmail());
         Users user = modelMapper.map(request, Users.class);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        userRepository.save(user);
+         user=userRepository.save(user);
         RegisterUserResponse response = modelMapper.map(user, RegisterUserResponse.class);
         response.setMessage("Successfully created user");
         return response;
