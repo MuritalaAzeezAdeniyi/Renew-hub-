@@ -11,9 +11,9 @@ public class Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private  Long sellerId;
-    private  String Title;
-    private  String Description;
-    private  String ImageUrl;
+    private  String title;
+    private  String description;
+    private  String imageUrl;
     private  String Price;
     private String location;
 
@@ -34,27 +34,27 @@ public class Property {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getImageUrl() {
-        return ImageUrl;
+        return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+        this.imageUrl = imageUrl;
     }
 
     public String getPrice() {
