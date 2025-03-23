@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadPropertyRequest {
     private String title;
     private String description;
-    private String imageUrl;
+    private MultipartFile imageUrl;
     private String price;
     private String location;
 
@@ -29,7 +29,7 @@ public class UploadPropertyRequest {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(MultipartFile imageUrl) {
         this.imageUrl = imageUrl;
     }
 
