@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/register").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/upload").hasRole("SELLER")
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
