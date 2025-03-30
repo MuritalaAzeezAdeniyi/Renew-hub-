@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,9 +20,9 @@ public class PropertyController {
 
     @PreAuthorize("hasRole('SELLER')")
     @PostMapping("/upload")
-    ResponseEntity <?> uploadProperty (UploadPropertyRequest request){
+    ResponseEntity <?> uploadProperty (@RequestBody UploadPropertyRequest request, @PathVariable String username){
         try{
-            Property property = propertyService.uploadProperty(request);
+            Property property = propertyService.uploadProperty(request,username);
             return new ResponseEntity<>(new ApiResponse(true,property), HttpStatus.CREATED);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

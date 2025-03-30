@@ -21,11 +21,12 @@ public class UserServiceTest {
     @Test
     public void testThatUserCanBeCreated() throws RegisterSuccessFullException, PhoneNumberException {
         RegisterUserRequest request = new RegisterUserRequest();
-        request.setUsername("Abdulazeez");
+        request.setUsername("abdul");
         request.setFullName("Muritala Azeez");
         request.setPassword("1111");
-        request.setEmail("abdulazeez@gmail.com");
+        request.setEmail("aze@gmail.com");
         request.setPhoneNumber("12345678901");
+        request.setRole(Role.SELLER);
         RegisterUserResponse response = userService.createUser(request);
         assertThat(response).isNotNull();
         assertThat(response.getMessage()).matches("Successfully created user");

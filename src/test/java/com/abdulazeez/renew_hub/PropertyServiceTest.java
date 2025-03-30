@@ -25,6 +25,7 @@ public class PropertyServiceTest {
 
     @Test
     public void testThatCanUploadProperty(){
+        String username = "abdul";
         UploadPropertyRequest uploadPropertyRequest = new UploadPropertyRequest();
         Path path = Paths.get("C:\\Users\\DELL\\Downloads\\Rectangle 4315.png");
         try(InputStream inputStream = new FileInputStream(path.toFile())){
@@ -35,7 +36,7 @@ public class PropertyServiceTest {
             uploadPropertyRequest.setLocation("Abuja");
             uploadPropertyRequest.setImageUrl(file);
 
-            Property property = propertyService.uploadProperty(uploadPropertyRequest);
+            Property property = propertyService.uploadProperty(uploadPropertyRequest,username);
             System.out.println(property);
             assertThat(property).isNotNull();
         } catch (FileNotFoundException e) {

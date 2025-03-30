@@ -1,21 +1,30 @@
 package com.abdulazeez.renew_hub.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.security.core.userdetails.User;
 
 @Entity
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-    private  Long sellerId;
     private  String title;
     private  String description;
     private  String imageUrl;
     private  String Price;
     private String location;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+     private Users user;
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
@@ -25,13 +34,6 @@ public class Property {
         this.id = id;
     }
 
-    public Long getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(Long sellerId) {
-        this.sellerId = sellerId;
-    }
 
     public String getTitle() {
         return title;

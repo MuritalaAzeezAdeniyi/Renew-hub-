@@ -6,6 +6,7 @@ import com.abdulazeez.renew_hub.dto.response.RegisterUserResponse;
 import com.abdulazeez.renew_hub.exception.PhoneNumberException;
 import com.abdulazeez.renew_hub.exception.RegisterSuccessFullException;
 import com.abdulazeez.renew_hub.exception.UserAlreadyExitsException;
+import com.abdulazeez.renew_hub.model.Role;
 import com.abdulazeez.renew_hub.model.Users;
 import com.abdulazeez.renew_hub.repositry.UserRepo;
 import org.modelmapper.ModelMapper;
@@ -76,4 +77,7 @@ public class UserServiceImpl implements UserService {
             throw new UserAlreadyExitsException(String.format("User with email %s already exists", email));
         }
     }
+
+
 }
+

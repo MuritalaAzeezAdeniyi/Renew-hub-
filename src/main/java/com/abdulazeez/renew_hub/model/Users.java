@@ -2,6 +2,8 @@ package com.abdulazeez.renew_hub.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Users {
  @Id
@@ -16,6 +18,9 @@ public class Users {
 
  @Enumerated(EnumType.STRING)
  private Role role;
+
+ @OneToMany(mappedBy = "user")
+ private List<Property> properties;
 
  public Long getId() {
   return id;

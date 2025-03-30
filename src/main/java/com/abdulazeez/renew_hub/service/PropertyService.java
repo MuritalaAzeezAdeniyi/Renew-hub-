@@ -6,5 +6,5 @@ import com.abdulazeez.renew_hub.model.Property;
 import java.io.IOException;
 
 public interface PropertyService {
-    Property uploadProperty(UploadPropertyRequest Request) throws IOException;
+    Property uploadProperty(UploadPropertyRequest Request,String username) throws IOException;
 }
