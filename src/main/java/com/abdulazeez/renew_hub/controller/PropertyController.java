@@ -19,8 +19,8 @@ public class PropertyController {
     private PropertyService propertyService;
 
     @PreAuthorize("hasRole('SELLER')")
-    @PostMapping("/upload")
-    ResponseEntity <?> uploadProperty (@RequestBody UploadPropertyRequest request, @PathVariable String username){
+    @PostMapping("/upload/n{username}")
+    ResponseEntity <?> uploadProperty (@PathVariable String username,@RequestBody UploadPropertyRequest request){
         try{
             Property property = propertyService.uploadProperty(request,username);
             return new ResponseEntity<>(new ApiResponse(true,property), HttpStatus.CREATED);
