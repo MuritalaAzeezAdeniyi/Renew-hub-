@@ -1,7 +1,6 @@
 package com.abdulazeez.renew_hub.model;
 
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.User;
 
 @Entity
 public class Property {
@@ -11,19 +10,19 @@ public class Property {
     private  String title;
     private  String description;
     private  String imageUrl;
-    private  String Price;
+    private  Long Price;
     private String location;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-     private Users user;
+    @JoinColumn(name = "seller_id")
+     private Users seller;
 
-    public Users getUser() {
-        return user;
+    public Users getSeller() {
+        return seller;
     }
 
-    public void setUser(Users user) {
-        this.user = user;
+    public void setSeller(Users user) {
+        this.seller = user;
     }
 
     public Long getId() {
@@ -59,11 +58,11 @@ public class Property {
         this.imageUrl = imageUrl;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return Price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         Price = price;
     }
 

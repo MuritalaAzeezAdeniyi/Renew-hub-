@@ -19,7 +19,7 @@ public class Users {
  @Enumerated(EnumType.STRING)
  private Role role;
 
- @OneToMany(mappedBy = "user")
+ @OneToMany(mappedBy = "seller")
  private List<Property> properties;
 
  public Long getId() {

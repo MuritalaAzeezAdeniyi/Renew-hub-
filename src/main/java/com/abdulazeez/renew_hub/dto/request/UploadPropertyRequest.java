@@ -6,7 +6,7 @@ public class UploadPropertyRequest {
     private String title;
     private String description;
     private MultipartFile imageUrl;
-    private String price;
+    private Long price;
     private String location;
 
     public String getTitle() {
@@ -33,11 +33,11 @@ public class UploadPropertyRequest {
         this.imageUrl = imageUrl;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 

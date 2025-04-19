@@ -32,7 +32,7 @@ public class PropertyServiceTest {
             MultipartFile file = new MockMultipartFile("file", path.getFileName().toString(), "image/png", inputStream);
             uploadPropertyRequest.setTitle("My Picture");
             uploadPropertyRequest.setDescription("My Description");
-            uploadPropertyRequest.setPrice("345");
+            uploadPropertyRequest.setPrice(345L);
             uploadPropertyRequest.setLocation("Abuja");
             uploadPropertyRequest.setImageUrl(file);
 

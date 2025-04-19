@@ -58,8 +58,8 @@ public class PropertyServiceImpl implements PropertyService {
         property.setDescription(request.getDescription());
         property.setLocation(request.getLocation());
         property.setPrice(request.getPrice());
-        property.setUser(user);
-        property.setUser(user);
+        property.setSeller(user);
+//        property.setSeller(user);
         return property;
     }
 

@@ -17,6 +17,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
      @Autowired
@@ -72,8 +74,8 @@ public class UserServiceImpl implements UserService {
     }
 
     private void ValidateEmail(String email) {
-        Users user = userRepository.findByEmail(email);
-        if(user != null){
+      Optional <Users> user = userRepository.findByEmail(email);
+        if(user.isPresent()){
             throw new UserAlreadyExitsException(String.format("User with email %s already exists", email));
         }
     }
